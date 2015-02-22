@@ -51,8 +51,6 @@ namespace NeuralNetworkTrain
                 {1,1,1,1}
             };
 
-            Random rand = new Random();
-           
             Neuron inputNeuron1 = new Neuron();
             inputNeuron1.Weights = new double[]{1};
 
@@ -66,21 +64,13 @@ namespace NeuralNetworkTrain
             inputNeuron4.Weights = new double[] { 1 };
 
             Neuron hiddenNeuron1 = new Neuron();
-            hiddenNeuron1.Weights = new double[5];
-
-            for (int i = 0; i < 5; i++)
+            hiddenNeuron1.Inputs = new double[]
             {
-                double randValue = rand.NextDouble();
-                while (randValue == 0)
-                {
-                    randValue = rand.NextDouble();
-                }
-                hiddenNeuron1.
-            }
-
-            {
-                rand.NextDouble(), rand.NextDouble(), rand.NextDouble(), rand.NextDouble(), rand.NextDouble()
+                inputNeuron1.Output(), inputNeuron2.Output(), inputNeuron3.Output(), inputNeuron4.Output()
             };
+
+       
+
         }
     }
 }
