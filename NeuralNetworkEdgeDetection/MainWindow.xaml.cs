@@ -74,59 +74,92 @@ namespace NeuralNetworkEdgeDetection
             Bitmap edgeBitmap = new Bitmap(width, height);
             FeedforwardNetwork network = GetANN();
 
-            for (int i = 0; i < width; i+=2)
+            using (StreamWriter file = new StreamWriter("debug.txt"))
             {
-                for (int j = 0; j < height; j+=2)
+                for (int y = 0; y < height; y+=2)
                 {
-                    double[] values = 
-                    { 
-                                          (sourceBitmap.GetPixel(i, j).R) / 255, 
-                                          (sourceBitmap.GetPixel(i, j + 1).R) / 255, 
-                                          (sourceBitmap.GetPixel(i + 1, j).R) / 255, 
-                                          (sourceBitmap.GetPixel(i + 1, j + 1).R) / 255 
-                    };
-
-                    /*Thread thread = new Thread();
-                    Bitmap srcPartBitmap = new Bitmap(2, 2);
-                    for (int k = 0; k < 2; k++)
+                    for (int x = 0; x < width; x+=2)
                     {
-                        for (int l = 0; l < 2; l++)
-                        {
-                            srcPartBitmap.SetPixel(k, l, sourceBitmap.GetPixel(i + k, j + l));
-                        }
-                    }
-                    SourcePartImage.Source = GetBitmapImage(srcPartBitmap);*/
+                        double[] values = 
+                        { 
+                                              (sourceBitmap.GetPixel(x, y).R) / 255, 
+                                              (sourceBitmap.GetPixel(x + 1, y).R) / 255, 
+                                              (sourceBitmap.GetPixel(x, y + 1).R) / 255, 
+                                              (sourceBitmap.GetPixel(x + 1, y + 1).R) / 255
+                        };
 
-                     double[] output = network.ComputeOutputs(values);
-                     double[,] outputValues =
-                     {
-                         {
-                             output[0], output[1]
-                         },
-                         {
-                             output[2], output[3]
-                         }
-                     };
-
-                    for (int k = 0; k < 2; k++)
-                    {
-                        for (int l = 0; l < 2; l++)
+                        /*Thread thread = new Thread();
+                        Bitmap srcPartBitmap = new Bitmap(2, 2);
+                        for (int k = 0; k < 2; k++)
                         {
-                            double value = outputValues[k, l];
-                            int intValue = (int) value;
-                            if (value - intValue == 0.5)
+                            for (int l = 0; l < 2; l++)
                             {
-                                value += 0.1;
+                                srcPartBitmap.SetPixel(k, l, sourceBitmap.GetPixel(i + k, j + l));
                             }
+                        }
+                        SourcePartImage.Source = GetBitmapImage(srcPartBitmap);*/
 
-                            int pixelValue = (int) (Math.Round(value) * 255);
-                            Color color = Color.FromArgb(pixelValue, pixelValue, pixelValue);  
- 
-                            edgeBitmap.SetPixel(i + k, j + l, color);
-                        }                       
+                         double[] output = network.ComputeOutputs(values);
+                         double[,] outputValues =
+                         {
+                             {
+                                 output[0], output[1]
+                             },
+                             {
+                                 output[2], output[3]
+                             }
+                         };
+
+                         file.Write(x + "," + y + " "+ (x + 1) + "," + y + " " + x + "," + (y + 1) + " " + (x + 1) + "," + (y + 1) + ": " 
+                             + (sourceBitmap.GetPixel(x, y).R) + " " + (sourceBitmap.GetPixel(x + 1, y).R)
+                             + " " + (sourceBitmap.GetPixel(x, y + 1).R) + " " + (sourceBitmap.GetPixel(x + 1, y + 1).R) + " -> ");
+
+                         for (int y1 = 0; y1 < 2; y1++)
+                         {
+                             for (int x1 = 0; x1 < 2; x1++)
+                             {
+                                 file.Write((x + x1) + "," + (y + y1));
+                                 if (x1 == 1 && y1 == 1)
+                                 {
+                                     file.Write(": ");
+                                 }
+                                 else
+                                 {
+                                     file.Write(" ");
+                                 }
+                             }
+                         }
+
+                         for (int y1 = 0; y1 < 2; y1++)
+                         {
+                             for (int x1 = 0; x1 < 2; x1++)
+                             {
+                                 double value = outputValues[x1, y1];
+                                 int intValue = (int)value;
+                                 if (value - intValue == 0.5)
+                                 {
+                                     value += 0.1;
+                                 }
+
+                                 int pixelValue = (int)(Math.Round(value) * 255);
+                                 Color color = Color.FromArgb(pixelValue, pixelValue, pixelValue);
+
+                                 edgeBitmap.SetPixel(x + x1, y + y1, color);
+                                 file.Write(color.R);
+                                 if (x1 == 1 && y1 == 1)
+                                 {
+                                     file.Write("\r\n");
+                                 }
+                                 else
+                                 {
+                                     file.Write(" ");
+                                 }
+                             }
+                         }
+                                         
                     }
                 }
-            }
+            }            
 
             edgeBitmap.Save("edges.jpg");
             return GetBitmapImage(edgeBitmap);           
@@ -159,6 +192,7 @@ namespace NeuralNetworkEdgeDetection
                 }
             }
             
+            outBitmap.Save("binary.jpg");
             return GetBitmapImage(outBitmap);
         }
 
