@@ -187,3 +187,11 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+.localhistory
+Heaton/Activation/.svn
+Heaton/Exception/.svn
+Heaton/Util/.svn
+Heaton/Feedforward/Train/.svn
+Heaton/Feedforward/.svn
+Heaton/Feedforward/Train/Backpropagation/.svn
+Heaton/Matrix/.svn
