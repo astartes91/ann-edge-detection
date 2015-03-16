@@ -134,7 +134,7 @@ namespace NeuralNetworkEdgeDetection
                          {
                              for (int x1 = 0; x1 < 2; x1++)
                              {
-                                 double value = outputValues[x1, y1];
+                                 double value = outputValues[y1, x1];
                                  int intValue = (int)value;
                                  if (value - intValue == 0.5)
                                  {
