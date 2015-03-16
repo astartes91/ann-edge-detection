@@ -138,7 +138,7 @@ namespace NeuralNetworkEdgeDetection
                                  int intValue = (int)value;
                                  if (value - intValue == 0.5)
                                  {
-                                     value += 0.1;
+                                     value += 0.01;
                                  }
 
                                  int pixelValue = (int)(Math.Round(value) * 255);
