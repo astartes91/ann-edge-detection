@@ -1,7 +1,12 @@
 ﻿<Window x:Class="NeuralNetworkEdgeDetection.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
         Title="MainWindow" Height="441.3" Width="956">
+    <Window.Resources>
+        <componentModel:BackgroundWorker x:Key="AnnTrainingBackgroundWorker">          
+        </componentModel:BackgroundWorker>
+    </Window.Resources>
     <Grid>
         <Image HorizontalAlignment="Left" Height="285" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" Name="SourceImage"/>
         <Image HorizontalAlignment="Left" Height="285" Margin="240,10,0,0" VerticalAlignment="Top" Width="230" Name="GrayScaleImage"/>
@@ -10,6 +15,6 @@
         <Button Content="Load Image" HorizontalAlignment="Left" Margin="126,379,0,0" VerticalAlignment="Top" Width="527" Name="UploadImageButton" Click="UploadImageButton_Click"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="720,301,0,0" VerticalAlignment="Top" Width="100" Name="SourcePartImage"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="835,301,0,0" VerticalAlignment="Top" Width="100" Name="DestinationPartImage"/>
-
+        <Label Content="" HorizontalAlignment="Left" Margin="167,348,0,0" VerticalAlignment="Top" Name="MessageLabel"/>
     </Grid>
 </Window>
