@@ -4,8 +4,8 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
         Title="MainWindow" Height="441.3" Width="956">
     <Window.Resources>
-        <componentModel:BackgroundWorker x:Key="AnnTrainingBackgroundWorker">          
-        </componentModel:BackgroundWorker>
+        <componentModel:BackgroundWorker x:Key="AnnTrainingBackgroundWorker"/>
+        <componentModel:BackgroundWorker x:Key="EdgesDrawingBackgroundWorker"/>
     </Window.Resources>
     <Grid>
         <Image HorizontalAlignment="Left" Height="285" Margin="10,10,0,0" VerticalAlignment="Top" Width="230" Name="SourceImage"/>

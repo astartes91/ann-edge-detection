@@ -30,15 +30,19 @@ namespace NeuralNetworkEdgeDetection
     public partial class MainWindow : Window
     {
         private BackgroundWorker annTrainingBackgroundWorker;
+        private BackgroundWorker edgesDrawingBackgroundWorker;
   
         public MainWindow()
         {
             InitializeComponent();
+
             annTrainingBackgroundWorker = FindResource("AnnTrainingBackgroundWorker") as BackgroundWorker;
             annTrainingBackgroundWorker.DoWork += AnnTrainingBackgroundWorker_OnDoWork;
             annTrainingBackgroundWorker.ProgressChanged += AnnTrainingBackgroundWorker_ProgressChanged;
             annTrainingBackgroundWorker.RunWorkerCompleted += AnnTrainingBackgroundWorker_RunWorkerCompleted;
             annTrainingBackgroundWorker.WorkerReportsProgress = true;
+
+            edgesDrawingBackgroundWorker = FindResource("EdgesDrawingBackgroundWorker") as BackgroundWorker;
         }
 
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
