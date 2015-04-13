@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heaton", "Heaton\Heaton.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleANNTest", "ConsoleANNTest\ConsoleANNTest.csproj", "{C887C83E-79A0-485F-B52A-8DBF684AFFB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "binary_permutation\ConsoleApplication1.csproj", "{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C887C83E-79A0-485F-B52A-8DBF684AFFB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C887C83E-79A0-485F-B52A-8DBF684AFFB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C887C83E-79A0-485F-B52A-8DBF684AFFB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
