@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using HeatonResearchNeural.Feedforward;
 using HeatonResearchNeural.Feedforward.Train;
 using Microsoft.Win32;
@@ -35,6 +36,7 @@ namespace NeuralNetworkEdgeDetection
         private BackgroundWorker annTrainingBackgroundWorker;
 #endif
         private BackgroundWorker edgesDrawingBackgroundWorker;
+        //private SynchronizationContext sync = SynchronizationContext.Current;
   
         public MainWindow()
         {
@@ -92,11 +94,21 @@ namespace NeuralNetworkEdgeDetection
         private void edgesDrawingBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             BitmapImage edgesBitmapImage = e.Result as BitmapImage;
+
             //BitmapImage edgesBitmapImageClone = edgesBitmapImage.Clone();
             
             //EdgeImage.Source.Freeze();
-            EdgeImage.Source = edgesBitmapImageClone;
+            //EdgeImage.Source = edgesBitmapImage;
+            //sync.Post(state => { EdgeImage.Source = edgesBitmapImage; }, null);
+            //Dispatcher.BeginInvoke(new Action(() => {ChangeImage(edgesBitmapImage);}));
+            //Dispatcher.Invoke(() => { ChangeImage(edgesBitmapImage); });
+            //ChangeImage(edgesBitmapImage);
             UploadImageButton.IsEnabled = true;
+        }
+
+        private void ChangeImage(BitmapImage edgesBitmapImage)
+        {
+            EdgeImage.Source = edgesBitmapImage;
         }
 
         private void edgesDrawingBackgroundWorker_OnDoWork(object sender, DoWorkEventArgs e)
