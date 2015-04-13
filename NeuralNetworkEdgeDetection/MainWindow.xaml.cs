@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,20 +31,26 @@ namespace NeuralNetworkEdgeDetection
     /// </summary>
     public partial class MainWindow : Window
     {
+#if TRAIN_NETWORK
         private BackgroundWorker annTrainingBackgroundWorker;
+#endif
         private BackgroundWorker edgesDrawingBackgroundWorker;
   
         public MainWindow()
         {
             InitializeComponent();
-
+#if TRAIN_NETWORK
             annTrainingBackgroundWorker = FindResource("AnnTrainingBackgroundWorker") as BackgroundWorker;
             annTrainingBackgroundWorker.DoWork += AnnTrainingBackgroundWorker_OnDoWork;
             annTrainingBackgroundWorker.ProgressChanged += AnnTrainingBackgroundWorker_ProgressChanged;
             annTrainingBackgroundWorker.RunWorkerCompleted += AnnTrainingBackgroundWorker_RunWorkerCompleted;
             annTrainingBackgroundWorker.WorkerReportsProgress = true;
-
+#endif
             edgesDrawingBackgroundWorker = FindResource("EdgesDrawingBackgroundWorker") as BackgroundWorker;
+            edgesDrawingBackgroundWorker.DoWork += edgesDrawingBackgroundWorker_OnDoWork;
+            edgesDrawingBackgroundWorker.ProgressChanged += edgesDrawingBackgroundWorker_ProgressChanged;
+            edgesDrawingBackgroundWorker.RunWorkerCompleted += edgesDrawingBackgroundWorker_RunWorkerCompleted;
+            edgesDrawingBackgroundWorker.WorkerReportsProgress = true;
         }
 
         private void UploadImageButton_Click(object sender, RoutedEventArgs e)
@@ -68,10 +76,40 @@ namespace NeuralNetworkEdgeDetection
             BinaryImage.Source = binaryBitmapImage;
 
             UploadImageButton.IsEnabled = false;
-            EdgeImage.Source = null;
-            annTrainingBackgroundWorker.RunWorkerAsync();
+            EdgeImage.Source = new BitmapImage();
+            
+#if TRAIN_NETWORK
+            annTrainingBackgroundWorker.RunWorkerAsync();            
+#endif
+            edgesDrawingBackgroundWorker.RunWorkerAsync(binaryBitmapImage);
         }
 
+        private void edgesDrawingBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            MessageLabel.Content = e.UserState;
+        }
+
+        private void edgesDrawingBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            BitmapImage edgesBitmapImage = e.Result as BitmapImage;
+            //BitmapImage edgesBitmapImageClone = edgesBitmapImage.Clone();
+            
+            //EdgeImage.Source.Freeze();
+            EdgeImage.Source = edgesBitmapImageClone;
+            UploadImageButton.IsEnabled = true;
+        }
+
+        private void edgesDrawingBackgroundWorker_OnDoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            FeedforwardNetwork network = Algorithms.GetANN();
+
+            e.Result = DrawingUtils.GetEdges(//BinaryImage.Source as BitmapImage,
+                e.Argument as BitmapImage, 
+                network, worker);          
+        }
+
+#if TRAIN_NETWORK
         private void AnnTrainingBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             MessageLabel.Content = e.UserState;
@@ -89,5 +127,6 @@ namespace NeuralNetworkEdgeDetection
             BackgroundWorker worker = sender as BackgroundWorker;
             e.Result = Algorithms.TrainANN(worker);
         }
+#endif
     }
 }

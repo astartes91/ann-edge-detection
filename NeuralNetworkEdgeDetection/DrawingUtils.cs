@@ -80,7 +80,8 @@ namespace NeuralNetworkEdgeDetection
             return GetBitmapImage(grayScaleBitmap);
         }
 
-        public static BitmapImage GetEdges(BitmapImage binaryBitmapImage, FeedforwardNetwork network)
+        public static BitmapImage GetEdges(BitmapImage binaryBitmapImage, FeedforwardNetwork network, 
+            BackgroundWorker backgroundWorker)
         {
             Bitmap sourceBitmap = GetBitmap(binaryBitmapImage);
 
@@ -106,6 +107,8 @@ namespace NeuralNetworkEdgeDetection
                 {
                     for (int x = 0; x < width; x += 2)
                     {
+                        backgroundWorker.ReportProgress(0, x + " " + y);
+
                         double[] values = 
                         { 
                             (sourceBitmap.GetPixel(x, y).R) / 255, 

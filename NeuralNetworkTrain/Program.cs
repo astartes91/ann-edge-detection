@@ -53,7 +53,7 @@ namespace NeuralNetworkTrain
 
             Random rand = new Random();
 
-            List<Neuron> hiddenNeurons = new List<Neuron>();
+            /*List<Neuron> hiddenNeurons = new List<Neuron>();
             for (int i = 0; i < 12; i++)
             {
                 Neuron hiddenNeuron = new Neuron();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define THRESHOLD_VAR_1
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -39,6 +41,7 @@ namespace NeuralNetworkEdgeDetection
 
         public static int GetOtsuTreshold(Dictionary<int, int> histogram, long total)
         {
+#if THRESHOLD_VAR_1
             int sum = 0;
             for (int i = 1; i < 256; ++i)
             {
@@ -79,7 +82,8 @@ namespace NeuralNetworkEdgeDetection
                 }
             }
             return (threshold1 + threshold2) / 2;
-            /*var sum = 0;
+#else
+            var sum = 0;
             for (var i = 1; i < 256; ++i)
                 sum += i * histogram[i];
             var sumB = 0;
@@ -109,9 +113,11 @@ namespace NeuralNetworkEdgeDetection
                 }
             }
 
-            return threshold;*/
+            return threshold;
+#endif
         }
 
+#if TRAIN_NETWORK
         public static FeedforwardNetwork TrainANN(BackgroundWorker worker)
         {
             double[][] input =
@@ -209,10 +215,10 @@ namespace NeuralNetworkEdgeDetection
 
             return network;
         }
-
-        /*public static void GetANN(BackgroundWorker worker)
+#endif
+        public static FeedforwardNetwork GetANN(/*BackgroundWorker worker*/)
         {
-            /*List<String> lines = File.ReadAllLines("weights.txt").ToList();
+            List<String> lines = File.ReadAllLines("weights.txt").ToList();
             double[,] inputLayerWeights = new double[5, 12];
             double[,] hiddenLayerWeights = new double[13, 4];
             bool forInput = true;
@@ -248,21 +254,21 @@ namespace NeuralNetworkEdgeDetection
             }
 
             HeatonResearchNeural.Matrix.Matrix inputLayerMatrix = new HeatonResearchNeural.Matrix.Matrix(inputLayerWeights);
-            HeatonResearchNeural.Matrix.Matrix hiddenLayermatrix = new HeatonResearchNeural.Matrix.Matrix(hiddenLayerWeights);*/
+            HeatonResearchNeural.Matrix.Matrix hiddenLayermatrix = new HeatonResearchNeural.Matrix.Matrix(hiddenLayerWeights);
 
-           /* FeedforwardNetwork network = new FeedforwardNetwork();
+            FeedforwardNetwork network = new FeedforwardNetwork();
             network.AddLayer(new FeedforwardLayer(4));
             network.AddLayer(new FeedforwardLayer(12));
             network.AddLayer(new FeedforwardLayer(4));
             network.Reset();
 
-            /*FeedforwardLayer inputLayer = network.InputLayer;
+            FeedforwardLayer inputLayer = network.InputLayer;
             inputLayer.LayerMatrix = inputLayerMatrix;
 
             FeedforwardLayer hiddenLayer = network.HiddenLayers.ToList()[0];
-            hiddenLayer.LayerMatrix = hiddenLayermatrix;*/
+            hiddenLayer.LayerMatrix = hiddenLayermatrix;
 
-            /*return network;
-        }*/
+            return network;
+        }
     }
 }

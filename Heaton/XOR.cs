@@ -139,11 +139,9 @@ namespace Chapter5XOR
                     file.WriteLine();
                 }
             }
-            
 
-            
-
-            /*FeedforwardLayer outputLayer = network.OutputLayer;
+#if SHOW_MATRIX
+            FeedforwardLayer outputLayer = network.OutputLayer;
             Console.WriteLine("Output layer matrix:");
             layerMatrix = outputLayer.LayerMatrix;
             for (int i = 0; i < layerMatrix.Rows; i++)
@@ -153,9 +151,9 @@ namespace Chapter5XOR
                     Console.Write(layerMatrix[i, j] + " ");
                 }
                 Console.WriteLine();
-            }*/
+            }
 
-            /*foreach (FeedforwardLayer feedforwardLayer in network.Layers)
+            foreach (FeedforwardLayer feedforwardLayer in network.Layers)
             {
                 Matrix layerMatrix = feedforwardLayer.LayerMatrix;
                 Console.WriteLine(feedforwardLayer.Next);
@@ -167,7 +165,10 @@ namespace Chapter5XOR
                     }
                     Console.WriteLine();
                 }                
-            }*/
+            }
+#endif
+
+            Console.ReadKey();
         }
     }
 }
