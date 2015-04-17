@@ -117,17 +117,6 @@ namespace NeuralNetworkEdgeDetection
                             (sourceBitmap.GetPixel(x + 1, y + 1).R) / 255
                         };
 
-                        /*Thread thread = new Thread();
-                        Bitmap srcPartBitmap = new Bitmap(2, 2);
-                        for (int k = 0; k < 2; k++)
-                        {
-                            for (int l = 0; l < 2; l++)
-                            {
-                                srcPartBitmap.SetPixel(k, l, sourceBitmap.GetPixel(i + k, j + l));
-                            }
-                        }
-                        SourcePartImage.Source = GetBitmapImage(srcPartBitmap);*/
-
                         double[] output = network.ComputeOutputs(values);
                         double[,] outputValues =
                         {
@@ -191,7 +180,10 @@ namespace NeuralNetworkEdgeDetection
             }
 
             edgeBitmap.Save("edges.jpg");
-            return GetBitmapImage(edgeBitmap);
+            
+            BitmapImage resultBitmapImage = GetBitmapImage(edgeBitmap);
+            resultBitmapImage.Freeze();
+            return resultBitmapImage;
         }
 
         private static Bitmap GetBitmap(BitmapImage bitmapImage)

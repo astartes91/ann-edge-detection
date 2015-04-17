@@ -24,6 +24,7 @@ using HeatonResearchNeural.Feedforward;
 using HeatonResearchNeural.Feedforward.Train;
 using Microsoft.Win32;
 using Color = System.Drawing.Color;
+using Image = System.Windows.Controls.Image;
 
 namespace NeuralNetworkEdgeDetection
 {
@@ -78,12 +79,42 @@ namespace NeuralNetworkEdgeDetection
             BinaryImage.Source = binaryBitmapImage;
 
             UploadImageButton.IsEnabled = false;
-            EdgeImage.Source = new BitmapImage();
             
 #if TRAIN_NETWORK
             annTrainingBackgroundWorker.RunWorkerAsync();            
 #endif
             edgesDrawingBackgroundWorker.RunWorkerAsync(binaryBitmapImage);
+            //FeedforwardNetwork network = Algorithms.GetANN();
+
+            /*ThreadStart thread = delegate
+            {
+                //Load the image in a seperate thread
+                /*BitmapImage bmpImage = new BitmapImage();
+                MemoryStream ms = new MemoryStream();
+
+                //A custom class that reads the bytes of off the HD and shoves them into the MemoryStream. You could just replace the MemoryStream with something like this: FileStream fs = File.Open(@"C:\ImageFileName.jpg", FileMode.Open);
+                //MediaCoder.MediaDecoder.DecodeMediaWithStream(ImageItem, true, ms);
+
+                bmpImage.BeginInit();
+                bmpImage.StreamSource = ms;
+                bmpImage.EndInit();*/
+                /*BitmapImage bmpImage = DrawingUtils.GetEdges(binaryBitmapImage, network);
+
+                //**THIS LINE locks the BitmapImage so that it can be transported across threads!! 
+                bmpImage.Freeze();
+
+                //Call the UI thread using the Dispatcher to update the Image control
+                Dispatcher.BeginInvoke(new ThreadStart(delegate
+                {
+                    EdgeImage.Source = bmpImage;
+
+                    //grdImageContainer.Children.Add(img);
+                }));
+
+            };*/
+
+            //Start previously mentioned thread...
+            //new Thread(thread).Start();
         }
 
         private void edgesDrawingBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -93,22 +124,9 @@ namespace NeuralNetworkEdgeDetection
 
         private void edgesDrawingBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            BitmapImage edgesBitmapImage = e.Result as BitmapImage;
-
-            //BitmapImage edgesBitmapImageClone = edgesBitmapImage.Clone();
-            
-            //EdgeImage.Source.Freeze();
-            //EdgeImage.Source = edgesBitmapImage;
-            //sync.Post(state => { EdgeImage.Source = edgesBitmapImage; }, null);
-            //Dispatcher.BeginInvoke(new Action(() => {ChangeImage(edgesBitmapImage);}));
-            //Dispatcher.Invoke(() => { ChangeImage(edgesBitmapImage); });
-            //ChangeImage(edgesBitmapImage);
-            UploadImageButton.IsEnabled = true;
-        }
-
-        private void ChangeImage(BitmapImage edgesBitmapImage)
-        {
+            BitmapImage edgesBitmapImage = e.Result as BitmapImage;  
             EdgeImage.Source = edgesBitmapImage;
+            UploadImageButton.IsEnabled = true;
         }
 
         private void edgesDrawingBackgroundWorker_OnDoWork(object sender, DoWorkEventArgs e)
@@ -116,9 +134,7 @@ namespace NeuralNetworkEdgeDetection
             BackgroundWorker worker = sender as BackgroundWorker;
             FeedforwardNetwork network = Algorithms.GetANN();
 
-            e.Result = DrawingUtils.GetEdges(//BinaryImage.Source as BitmapImage,
-                e.Argument as BitmapImage, 
-                network, worker);          
+            e.Result = DrawingUtils.GetEdges(e.Argument as BitmapImage, network, worker);          
         }
 
 #if TRAIN_NETWORK
