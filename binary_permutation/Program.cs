@@ -11,35 +11,49 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             String result;
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("output.txt", true))
+            using (System.IO.StreamWriter inputFile = new System.IO.StreamWriter("input.txt", true))
             {
-                for (int i = 0; i < 2; i++)
+                using (System.IO.StreamWriter outputFile = new System.IO.StreamWriter("output.txt", true))
                 {
-                    for (int j = 0; j < 2; j++)
+                    for (int i = 0; i < 2; i++)
                     {
-                        for (int k = 0; k < 2; k++)
+                        for (int j = 0; j < 2; j++)
                         {
-                            for (int l = 0; l < 2; l++)
+                            for (int k = 0; k < 2; k++)
                             {
-                                for (int m = 0; m < 2; m++)
+                                for (int l = 0; l < 2; l++)
                                 {
-                                    for (int n = 0; n < 2; n++)
+                                    for (int m = 0; m < 2; m++)
                                     {
-                                        for (int o = 0; o < 2; o++)
+                                        for (int n = 0; n < 2; n++)
                                         {
-                                            for (int p = 0; p < 2; p++)
+                                            for (int o = 0; o < 2; o++)
                                             {
-                                                result = String.Format("{0}{1}{2}{3}{4}{5}{6}{7}", i, j, k, l, m, n, o, p);
-                                                file.WriteLine(result);
+                                                for (int p = 0; p < 2; p++)
+                                                {
+                                                    result = String.Format("{0},{1},{2},{3},{4},{5},{6},{7},0", i, j, k, l, m, n, o, p);
+                                                    inputFile.WriteLine(result);
+                                                    outputFile.WriteLine("0");
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                }          
+                    }          
+                }
+                
+
             }
+            /*using (System.IO.StreamWriter file = new System.IO.StreamWriter("output.txt", true))
+            {
+                file.WriteLine("0");
+                for (int i = 0; i < 255; i++)
+                {
+                    
+                }
+            }*/
         }
     }
 }

@@ -37,7 +37,8 @@ namespace NeuralNetworkEdgeDetection
         private BackgroundWorker annTrainingBackgroundWorker;
 #endif
         private BackgroundWorker edgesDrawingBackgroundWorker;
-        //private SynchronizationContext sync = SynchronizationContext.Current;
+
+        private static uint counter = 0;
   
         public MainWindow()
         {
@@ -84,42 +85,57 @@ namespace NeuralNetworkEdgeDetection
             annTrainingBackgroundWorker.RunWorkerAsync();            
 #endif
             edgesDrawingBackgroundWorker.RunWorkerAsync(binaryBitmapImage);
-            //FeedforwardNetwork network = Algorithms.GetANN();
-
-            /*ThreadStart thread = delegate
-            {
-                //Load the image in a seperate thread
-                /*BitmapImage bmpImage = new BitmapImage();
-                MemoryStream ms = new MemoryStream();
-
-                //A custom class that reads the bytes of off the HD and shoves them into the MemoryStream. You could just replace the MemoryStream with something like this: FileStream fs = File.Open(@"C:\ImageFileName.jpg", FileMode.Open);
-                //MediaCoder.MediaDecoder.DecodeMediaWithStream(ImageItem, true, ms);
-
-                bmpImage.BeginInit();
-                bmpImage.StreamSource = ms;
-                bmpImage.EndInit();*/
-                /*BitmapImage bmpImage = DrawingUtils.GetEdges(binaryBitmapImage, network);
-
-                //**THIS LINE locks the BitmapImage so that it can be transported across threads!! 
-                bmpImage.Freeze();
-
-                //Call the UI thread using the Dispatcher to update the Image control
-                Dispatcher.BeginInvoke(new ThreadStart(delegate
-                {
-                    EdgeImage.Source = bmpImage;
-
-                    //grdImageContainer.Children.Add(img);
-                }));
-
-            };*/
-
-            //Start previously mentioned thread...
-            //new Thread(thread).Start();
         }
 
         private void edgesDrawingBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            MessageLabel.Content = e.UserState;
+            /*counter++;
+            //MessageLabel.Content = e.UserState;
+            double[][] inputOutputValues = e.UserState as double[][];
+            double[] input = inputOutputValues[0];
+            double[] output = inputOutputValues[1]; 
+
+            Bitmap inputBitmap = new Bitmap(2, 2);
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                double value = input[i];
+                int intValue = (int)value;
+                if (value - intValue == 0.5)
+                {
+                    value += 0.01;
+                }
+
+                input[i] = (int)(Math.Round(value));
+            }
+
+            for (int i = 0; i < output.Length; i++)
+            {
+                double value = output[i];
+                int intValue = (int)value;
+                if (value - intValue == 0.5)
+                {
+                    value += 0.01;
+                }
+
+                output[i] = (int)(Math.Round(value));
+            }
+
+            inputBitmap.SetPixel(0, 0, input[0] == 0 ? Color.Black : Color.White);
+            inputBitmap.SetPixel(1, 0, input[1] == 0 ? Color.Black : Color.White);
+            inputBitmap.SetPixel(0, 1, input[2] == 0 ? Color.Black : Color.White);
+            inputBitmap.SetPixel(1, 1, input[3] == 0 ? Color.Black : Color.White);
+            //inputBitmap.Save("image" + counter + ".bmp");
+
+            SourcePartImage.Source = DrawingUtils.GetBitmapImage(inputBitmap);
+
+            Bitmap outputBitmap = new Bitmap(2, 2);
+            outputBitmap.SetPixel(0, 0, output[0] == 0 ? Color.Black : Color.White);
+            outputBitmap.SetPixel(1, 0, output[1] == 0 ? Color.Black : Color.White);
+            outputBitmap.SetPixel(0, 1, output[2] == 0 ? Color.Black : Color.White);
+            outputBitmap.SetPixel(1, 1, output[3] == 0 ? Color.Black : Color.White);
+
+            DestinationPartImage.Source = DrawingUtils.GetBitmapImage(outputBitmap);*/
         }
 
         private void edgesDrawingBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

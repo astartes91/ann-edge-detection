@@ -6,6 +6,7 @@ using System.Text;
 
 using HeatonResearchNeural.Feedforward;
 using HeatonResearchNeural.Feedforward.Train;
+using HeatonResearchNeural.Feedforward.Train.Backpropagation;
 using HeatonResearchNeural.Matrix;
 
 namespace Chapter5XOR
@@ -20,7 +21,7 @@ namespace Chapter5XOR
         /// <summary>
         /// Input for the XOR function.
         /// </summary>
-        public static double[][] XOR_INPUT ={
+        public static double[][] XOR_INPUT/* ={
             new double[] {0,0,0,0},
                 new double[]{0,0,0,1},
                 new double[]{0,0,1,0},
@@ -37,12 +38,12 @@ namespace Chapter5XOR
                 new double[]{1,1,0,1},
                 new double[]{1,1,1,0},
                 new double[]{1,1,1,1}
-                                            };
+                                            }*/;
 
         /// <summary>
         /// Ideal output for the XOR function.
         /// </summary>
-        public static double[][] XOR_IDEAL = {                                              
+        public static double[][] XOR_IDEAL/* = {                                              
             new double[]{1,1,1,1},
                 new double[]{1,0,0,1},
                 new double[]{0,1,1,0},
@@ -58,7 +59,7 @@ namespace Chapter5XOR
                 new double[]{1,1,0,0},
                 new double[]{1,1,1,1},
                 new double[]{1,1,1,1},
-                new double[]{1,1,1,1} };
+                new double[]{1,1,1,1} }*/;
 
         /// <summary>
         /// Create, train and use a neural network for XOR.
@@ -66,14 +67,40 @@ namespace Chapter5XOR
         /// <param name="args">Not used</param>
         static void Main(string[] args)
         {
+            XOR_INPUT = new double[256][];
+            XOR_IDEAL = new double[256][];
+
+            String[] lines = File.ReadAllLines("input.txt");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                String str = lines[i];
+                double[] input = new double[8];
+                for (int j = 0; j < 8; j++)
+                {
+                    input[j] = Double.Parse(str[j].ToString());
+                }
+                XOR_INPUT[i] = input;
+            }
+
+            lines = File.ReadAllLines("output.txt");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                String str = lines[i];
+                double[] output = new double[1];
+                
+                output[0] = Double.Parse(str);
+
+                XOR_IDEAL[i] = output;
+            }
+
             FeedforwardNetwork network = new FeedforwardNetwork();
-            network.AddLayer(new FeedforwardLayer(4));
-            network.AddLayer(new FeedforwardLayer(12));
-            network.AddLayer(new FeedforwardLayer(4));
+            network.AddLayer(new FeedforwardLayer(8));
+            network.AddLayer(new FeedforwardLayer(2));
+            network.AddLayer(new FeedforwardLayer(1));
             network.Reset();
 
             // train the neural network
-            Train train = new HeatonResearchNeural.Feedforward.Train.Backpropagation.Backpropagation(network, XOR_INPUT, XOR_IDEAL,
+            Train train = new Backpropagation(network, XOR_INPUT, XOR_IDEAL,
                     0.5, 0.9);
 
             int epoch = 1;
