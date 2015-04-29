@@ -102,9 +102,9 @@ namespace NeuralNetworkEdgeDetection
 
             /*using (StreamWriter file = new StreamWriter("debug.txt"))
             {*/
-                for (int y = 0; y < height; y += 2)
+                for (int y = 0; y < height - 1; y += 1)
                 {
-                    for (int x = 0; x < width; x += 2)
+                    for (int x = 0; x < width - 1; x += 1)
                     {
                         double[] values = 
                         { 
@@ -180,7 +180,7 @@ namespace NeuralNetworkEdgeDetection
                 }
            // }
 
-            //edgeBitmap.Save("edges.jpg");
+            edgeBitmap.Save("edges.jpg");
             
             BitmapImage resultBitmapImage = GetBitmapImage(edgeBitmap);
             resultBitmapImage.Freeze();

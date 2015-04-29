@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleANNTest", "ConsoleAN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "binary_permutation\ConsoleApplication1.csproj", "{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdgeDetectionWinForms", "EdgeDetectionWinForms\EdgeDetectionWinForms.csproj", "{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
