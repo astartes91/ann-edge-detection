@@ -99,6 +99,13 @@ namespace NeuralNetworkEdgeDetection
             }
 
             Bitmap edgeBitmap = new Bitmap(width, height);
+            for (int y = 0; y < height; y += 1)
+            {
+                for (int x = 0; x < width; x += 1)
+                {
+                    edgeBitmap.SetPixel(x, y, Color.White);
+                }
+            }
 
             /*using (StreamWriter file = new StreamWriter("debug.txt"))
             {*/
@@ -163,7 +170,11 @@ namespace NeuralNetworkEdgeDetection
                                 int pixelValue = (int)(Math.Round(value) * 255);
                                 Color color = Color.FromArgb(pixelValue, pixelValue, pixelValue);
 
-                                edgeBitmap.SetPixel(x + x1, y + y1, color);
+                                if (edgeBitmap.GetPixel(x + x1, y + y1).R == 255)
+                                {
+                                    edgeBitmap.SetPixel(x + x1, y + y1, color);
+                                }
+                                
                                /* file.Write(color.R);
                                 if (x1 == 1 && y1 == 1)
                                 {
