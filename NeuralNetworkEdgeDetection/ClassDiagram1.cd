@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NeuralNetworkEdgeDetection.Algorithms" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAAACAA=</HashCode>
+      <FileName>Algorithms.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetworkEdgeDetection.App" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetworkEdgeDetection.DrawingUtils" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAABAgAAAAAAAACAAAAEAAAAAAAAA=</HashCode>
+      <FileName>DrawingUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetworkEdgeDetection.MainWindow" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAQAAAAQAAAAAAEAAAAAAAAAAQA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetworkEdgeDetection.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuralNetworkEdgeDetection.Properties.Settings" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeatonResearchNeural.Activation.ActivationLinear" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HeatonResearchNeural.Activation.ActivationSigmoid" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HeatonResearchNeural.Activation.ActivationTANH" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HeatonResearchNeural.Exception.NeuralNetworkError" Collapsed="true">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Feedforward.FeedforwardLayer" Collapsed="true">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Feedforward.FeedforwardNetwork" Collapsed="true">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Feedforward.Train.Backpropagation.Backpropagation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="HeatonResearchNeural.Feedforward.Train.Backpropagation.BackpropagationLayer" Collapsed="true">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Matrix.BiPolarUtil" Collapsed="true">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Matrix.Matrix" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Matrix.MatrixCODEC" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Matrix.MatrixMath" Collapsed="true">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Util.ErrorCalculation" Collapsed="true">
+    <Position X="4.75" Y="4" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Util.ReadCSV" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="HeatonResearchNeural.Util.SerializeObject" Collapsed="true">
+    <Position X="4.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="HeatonResearchNeural.Activation.ActivationFunction" Collapsed="true">
+    <Position X="1" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="HeatonResearchNeural.Feedforward.Train.Train" Collapsed="true">
+    <Position X="2.75" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

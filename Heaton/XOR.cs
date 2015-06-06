@@ -21,7 +21,7 @@ namespace Chapter5XOR
         /// <summary>
         /// Input for the XOR function.
         /// </summary>
-        public static double[][] XOR_INPUT/* ={
+        public static double[][] XOR_INPUT ={
             new double[] {0,0,0,0},
                 new double[]{0,0,0,1},
                 new double[]{0,0,1,0},
@@ -38,28 +38,28 @@ namespace Chapter5XOR
                 new double[]{1,1,0,1},
                 new double[]{1,1,1,0},
                 new double[]{1,1,1,1}
-                                            }*/;
+                                            };
 
         /// <summary>
         /// Ideal output for the XOR function.
         /// </summary>
-        public static double[][] XOR_IDEAL/* = {                                              
-            new double[]{1,1,1,1},
-                new double[]{1,0,0,1},
-                new double[]{0,1,1,0},
+        public static double[][] XOR_IDEAL = {                                              
+            new double[]{0,0,0,0},
+                new double[]{0,0,0,1},
+                new double[]{0,0,1,0},
                 new double[]{0,0,1,1},
-                new double[]{0,1,1,0},
+                new double[]{0,1,0,0},
                 new double[]{0,1,0,1},
                 new double[]{0,1,1,0},
-                new double[]{1,1,1,1},
-                new double[]{1,0,0,1},
+                new double[]{0,0,0,0},
+                new double[]{1,0,0,0},
                 new double[]{1,0,0,1},
                 new double[]{1,0,1,0},
-                new double[]{1,1,1,1},
+                new double[]{0,0,0,0},
                 new double[]{1,1,0,0},
-                new double[]{1,1,1,1},
-                new double[]{1,1,1,1},
-                new double[]{1,1,1,1} }*/;
+                new double[]{0,0,0,0},
+                new double[]{0,0,0,0},
+                new double[]{0,0,0,0} };
 
         /// <summary>
         /// Create, train and use a neural network for XOR.
@@ -67,7 +67,7 @@ namespace Chapter5XOR
         /// <param name="args">Not used</param>
         static void Main(string[] args)
         {
-            XOR_INPUT = new double[256][];
+            /*XOR_INPUT = new double[256][];
             XOR_IDEAL = new double[256][];
 
             String[] lines = File.ReadAllLines("input.txt");
@@ -92,25 +92,23 @@ namespace Chapter5XOR
 
                 XOR_IDEAL[i] = output;
             }
-
+            */
             FeedforwardNetwork network = new FeedforwardNetwork();
-            network.AddLayer(new FeedforwardLayer(8));
-            network.AddLayer(new FeedforwardLayer(2));
-            network.AddLayer(new FeedforwardLayer(1));
+            network.AddLayer(new FeedforwardLayer(4));
+            network.AddLayer(new FeedforwardLayer(12));
+            network.AddLayer(new FeedforwardLayer(4));
             network.Reset();
 
             // train the neural network
             Train train = new Backpropagation(network, XOR_INPUT, XOR_IDEAL,
-                    0.5, 0.9);
+                    0.3, 0.9);
 
             int epoch = 1;
 
             do
             {
                 train.Iteration();
-#if DEBUG
                 Console.WriteLine("Epoch #" + epoch + " Error:" + train.Error);
-#endif
                 epoch++;
             } while ((epoch < 40000) && (train.Error > 0.001));
 
