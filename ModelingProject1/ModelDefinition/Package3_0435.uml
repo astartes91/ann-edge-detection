@@ -1,33 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
-  Id="26fb50e5-29f6-4cf3-94dd-51d84de8b9cb"
-  name="HeatonResearchNeural"
+  Id="5bad1679-bae6-4710-a667-416816f363cf"
+  name="Collections"
   visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <referencesInternal>
     <reference
-      Id="4591b604-97df-4725-af42-56411e54ab92"
-      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHeatonResearchNeural"
+      Id="d5e4aaa0-3dff-4da7-a3c4-4a8d27aefde7"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Collections"
       tag="ViewCode" />
   </referencesInternal>
   <packagedElements>
     <packageHasNamedElement>
       <packageMoniker
-        Id="57378906-8afb-4679-900f-b816b82df2cf"
-        LastKnownName="Feedforward"
-        LastKnownLocation="Package_0416.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="790cde79-37c1-4906-8a5c-ae0f9fee31fa"
-        LastKnownName="Activation"
-        LastKnownLocation="Package_0435.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="2d807ffe-e3d9-489e-b3df-935f50295fe7"
-        LastKnownName="Matrix"
-        LastKnownLocation="Package2_0435.uml" />
+        Id="656ed959-95df-4429-a4ca-65b7f8a0eebc"
+        LastKnownName="Generic"
+        LastKnownLocation="Package4_0435.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

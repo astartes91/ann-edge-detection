@@ -3,6 +3,88 @@
   dslVersion="1.0.0.0"
   Id="645518a2-989a-4c46-a7f0-6d8f0d109e0f"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <appliedStereotypesInternal>
+    <stereotypeInstance
+      Id="faa57708-d8aa-46bb-9d6a-c875252c5b35"
+      name="namespace"
+      profile="CSharpProfile">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="8713ab8d-ab5e-4cc2-b2ee-39932d6630bf">
+          <propertyInstance
+            Id="48c2582d-5257-4f41-8d91-15c6d2e0f85d"
+            name="BaseName" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="470570c3-a510-4b17-9b9d-b7944249f252">
+          <propertyInstance
+            Id="858376e5-7f43-4c26-af2f-0d6a5667b0f9"
+            name="ClrAttributes" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="fc7e1427-bfa4-4bc4-a695-6330206e81d9">
+          <propertyInstance
+            Id="ba3de63f-e78d-4bf5-8c79-e27559ef9b7c"
+            name="Usings" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance
+      Id="ae144da6-9a70-47da-a10b-d27a6242d582"
+      name="TextTemplateBindings"
+      profile="TextTemplateBindings">
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="316ed417-d8f0-4af7-b818-4ecc5d187055">
+          <propertyInstance
+            Id="7474a7f6-e91c-42eb-bae0-d9824b680a44"
+            name="Alias"
+            value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="6e2357f2-1c77-4fea-bede-a31308884e9b">
+          <propertyInstance
+            Id="77c842ef-3c3f-4466-89df-ee09bbeba310"
+            name="TemplateFilePath"
+            value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="dac769fc-21a5-4260-bca9-dcab3785eaaa">
+          <propertyInstance
+            Id="14238269-a627-4ac3-b9b4-01b863b05704"
+            name="ProjectPath"
+            value="ClassTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|EnumTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|InterfaceTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj|StructTemplate=..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="449345b7-7b37-4f05-984b-824794db96bd">
+          <propertyInstance
+            Id="bf2cd5d9-f3de-4d93-b609-c515007fa526"
+            name="TargetDirectory"
+            value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="f3673a03-3669-4283-9787-04d83163965f">
+          <propertyInstance
+            Id="a4a5c4a4-1409-4bf5-be50-84d94099f2cc"
+            name="TargetName"
+            value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="1189b64a-8505-48f6-a4d0-c08bd58ac91d">
+          <propertyInstance
+            Id="b07edafc-1024-4ab2-b122-bf12981ceddc"
+            name="Overwrite"
+            value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances
+          Id="944344ac-1ff2-425a-adeb-840d63eacf13">
+          <propertyInstance
+            Id="f34d9496-afd1-419e-af81-bc96aa94e881"
+            name="Parameters" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -22,6 +104,12 @@
         Id="2ae65350-1dd0-4304-b82d-558cc39e89c0"
         name="CSharpProfile" />
     </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="6bd51f36-b899-4fa3-92af-4fadaf227381">
+      <profileInstance
+        Id="91cff6b1-eae6-4ccc-bc6d-c3704df3af7f"
+        name="TextTemplateBindings" />
+    </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
@@ -35,6 +123,18 @@
         Id="923088a7-86c0-4575-abcd-6261efa0b873"
         LastKnownName="NeuralNetworkEdgeDetection"
         LastKnownLocation="Package_2058.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8c8f7fe7-d54e-4ea6-9310-fe221c514c7d"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_0430.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f0928efd-2f52-4f75-9f43-d71cd770995c"
+        LastKnownName="System"
+        LastKnownLocation="Package1_0435.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

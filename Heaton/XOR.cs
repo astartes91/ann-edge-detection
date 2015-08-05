@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,22 +45,22 @@ namespace Chapter5XOR
         /// Ideal output for the XOR function.
         /// </summary>
         public static double[][] XOR_IDEAL = {                                              
-            new double[]{0,0,0,0},
-                new double[]{0,0,0,1},
-                new double[]{0,0,1,0},
-                new double[]{0,0,1,1},
-                new double[]{0,1,0,0},
-                new double[]{0,1,0,1},
-                new double[]{0,1,1,0},
-                new double[]{0,0,0,0},
-                new double[]{1,0,0,0},
-                new double[]{1,0,0,1},
-                new double[]{1,0,1,0},
-                new double[]{0,0,0,0},
-                new double[]{1,1,0,0},
-                new double[]{0,0,0,0},
-                new double[]{0,0,0,0},
-                new double[]{0,0,0,0} };
+            new double[] {1,1,1,1},
+            new double[] {1,0,0,1},
+            new double[] {0,1,1,0},
+            new double[] {0,0,1,1},
+            new double[] {0,1,1,0},
+            new double[] {0,1,0,1},
+            new double[] {0,1,1,0},
+            new double[] {1,1,1,1},
+            new double[] {1,0,0,1},
+            new double[] {1,0,0,1},
+            new double[] {1,0,1,0},
+            new double[] {1,1,1,1},
+            new double[] {1,1,0,0},
+            new double[] {1,1,1,1},
+            new double[] {1,1,1,1},
+            new double[] {1,1,1,1} };
 
         /// <summary>
         /// Create, train and use a neural network for XOR.
@@ -101,17 +102,20 @@ namespace Chapter5XOR
 
             // train the neural network
             Train train = new Backpropagation(network, XOR_INPUT, XOR_IDEAL,
-                    0.3, 0.9);
+                    0.2, 0.95);
 
             int epoch = 1;
 
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
             do
             {
                 train.Iteration();
                 Console.WriteLine("Epoch #" + epoch + " Error:" + train.Error);
                 epoch++;
             } while ((epoch < 40000) && (train.Error > 0.001));
-
+            watch.Stop();
+            Console.WriteLine(watch.ElapsedMilliseconds / 1000.0);
             // test the neural network
 #if DEBUG
             Console.WriteLine("Neural Network Results:");

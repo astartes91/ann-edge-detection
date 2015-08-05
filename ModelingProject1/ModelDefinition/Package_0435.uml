@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="790cde79-37c1-4906-8a5c-ae0f9fee31fa"
+  name="Activation"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="4c782220-0ed8-4ea2-8676-c44ba63ea5f0"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DHeatonResearchNeural.Activation"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="915b120c-3fc0-4a38-b53b-9efc3cff3cf2"
+        name="ActivationFunction"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="33b66084-fe78-4c2a-88c2-22a10c2cbfb4"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FVisual Studio%2FMagistartura%2Fneuralnetworkedgedetection%2FHeaton%2Fbin%2FRelease%2FHeaton.exe&quot; Namespace%3DHeatonResearchNeural.Activation Type%3DActivationFunction"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0352f864-fed6-45c2-8b9b-bc4d97448abc"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4e54967e-a719-4775-b068-8e3f4a66733d">
+                <propertyInstance
+                  Id="9b2b687c-81f2-4f6a-b78b-798d6fa22f4b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8c6ea869-9c17-41db-817e-5158ac2740a4">
+                <propertyInstance
+                  Id="07673159-0869-425b-8b64-11a9a52da8b3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ce1a6ea7-ae08-4b29-8fb9-4153a624be66">
+                <propertyInstance
+                  Id="5f556495-6b2a-4f54-8b5f-cc98be2d6e7b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15a344ab-84b1-4a11-9d6e-e94f2de4ee7f">
+                <propertyInstance
+                  Id="19fad753-be0b-4757-b313-18a9c6beb5f3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

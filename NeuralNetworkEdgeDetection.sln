@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetworkEdgeDetection", "NeuralNetworkEdgeDetection\NeuralNetworkEdgeDetection.csproj", "{BE87949E-2A9D-42F5-973A-C7D5382ACBBA}"
 EndProject
@@ -12,10 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleANNTest", "ConsoleANNTest\ConsoleANNTest.csproj", "{C887C83E-79A0-485F-B52A-8DBF684AFFB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "binary_permutation\ConsoleApplication1.csproj", "{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdgeDetectionWinForms", "EdgeDetectionWinForms\EdgeDetectionWinForms.csproj", "{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}"
-EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{2C37E8D1-99DD-4A6B-9374-B3BE0FC5C0B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +39,6 @@ Global
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA43CD1-F0B7-461A-98A3-9B001CCC916E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8CF32E5-04D6-430A-9842-D9EFB1B549E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C37E8D1-99DD-4A6B-9374-B3BE0FC5C0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C37E8D1-99DD-4A6B-9374-B3BE0FC5C0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C37E8D1-99DD-4A6B-9374-B3BE0FC5C0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C37E8D1-99DD-4A6B-9374-B3BE0FC5C0B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

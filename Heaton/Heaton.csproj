@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HeatonResearchNeural">
+      <HintPath>C:\Downloads\Архивы\CSIntroNeuralNetworkEdition2\HeatonResearchNeural\bin\Release\HeatonResearchNeural.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,101 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activation\ActivationFunction.cs" />
-    <Compile Include="Activation\ActivationLinear.cs" />
-    <Compile Include="Activation\ActivationSigmoid.cs" />
-    <Compile Include="Activation\ActivationTANH.cs" />
-    <Compile Include="Exception\MatrixError.cs" />
-    <Compile Include="Exception\NeuralNetworkError.cs" />
-    <Compile Include="Feedforward\FeedforwardLayer.cs" />
-    <Compile Include="Feedforward\FeedforwardNetwork.cs" />
-    <Compile Include="Feedforward\Train\Backpropagation\Backpropagation.cs" />
-    <Compile Include="Feedforward\Train\Backpropagation\BackpropagationLayer.cs" />
-    <Compile Include="Feedforward\Train\Train.cs" />
-    <Compile Include="Matrix\BiPolarUtil.cs" />
-    <Compile Include="Matrix\Matrix.cs" />
-    <Compile Include="Matrix\MatrixCODEC.cs" />
-    <Compile Include="Matrix\MatrixMath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\BoundNumbers.cs" />
-    <Compile Include="Util\ErrorCalculation.cs" />
-    <Compile Include="Util\ReadCSV.cs" />
-    <Compile Include="Util\SerializeObject.cs" />
     <Compile Include="XOR.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Activation\.svn\all-wcprops" />
-    <None Include="Activation\.svn\entries" />
-    <None Include="Activation\.svn\text-base\ActivationFunction.cs.svn-base" />
-    <None Include="Activation\.svn\text-base\ActivationLinear.cs.svn-base" />
-    <None Include="Activation\.svn\text-base\ActivationSigmoid.cs.svn-base" />
-    <None Include="Activation\.svn\text-base\ActivationTANH.cs.svn-base" />
     <None Include="App.config" />
-    <None Include="Exception\.svn\all-wcprops" />
-    <None Include="Exception\.svn\entries" />
-    <None Include="Exception\.svn\text-base\MatrixError.cs.svn-base" />
-    <None Include="Exception\.svn\text-base\NeuralNetworkError.cs.svn-base" />
-    <None Include="Feedforward\.svn\all-wcprops" />
-    <None Include="Feedforward\.svn\entries" />
-    <None Include="Feedforward\.svn\text-base\FeedforwardLayer.cs.svn-base" />
-    <None Include="Feedforward\.svn\text-base\FeedforwardNetwork.cs.svn-base" />
-    <None Include="Feedforward\Train\.svn\all-wcprops" />
-    <None Include="Feedforward\Train\.svn\entries" />
-    <None Include="Feedforward\Train\.svn\text-base\Train.cs.svn-base" />
-    <None Include="Feedforward\Train\Backpropagation\.svn\all-wcprops" />
-    <None Include="Feedforward\Train\Backpropagation\.svn\entries" />
-    <None Include="Feedforward\Train\Backpropagation\.svn\text-base\Backpropagation.cs.svn-base" />
-    <None Include="Feedforward\Train\Backpropagation\.svn\text-base\BackpropagationLayer.cs.svn-base" />
-    <None Include="Matrix\.svn\all-wcprops" />
-    <None Include="Matrix\.svn\entries" />
-    <None Include="Matrix\.svn\text-base\BiPolarUtil.cs.svn-base" />
-    <None Include="Matrix\.svn\text-base\Matrix.cs.svn-base" />
-    <None Include="Matrix\.svn\text-base\MatrixCODEC.cs.svn-base" />
-    <None Include="Matrix\.svn\text-base\MatrixMath.cs.svn-base" />
-    <None Include="Util\.svn\all-wcprops" />
-    <None Include="Util\.svn\entries" />
-    <None Include="Util\.svn\text-base\BoundNumbers.cs.svn-base" />
-    <None Include="Util\.svn\text-base\ErrorCalculation.cs.svn-base" />
-    <None Include="Util\.svn\text-base\ReadCSV.cs.svn-base" />
-    <None Include="Util\.svn\text-base\SerializeObject.cs.svn-base" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Activation\.svn\prop-base\" />
-    <Folder Include="Activation\.svn\props\" />
-    <Folder Include="Activation\.svn\tmp\prop-base\" />
-    <Folder Include="Activation\.svn\tmp\props\" />
-    <Folder Include="Activation\.svn\tmp\text-base\" />
-    <Folder Include="Exception\.svn\prop-base\" />
-    <Folder Include="Exception\.svn\props\" />
-    <Folder Include="Exception\.svn\tmp\prop-base\" />
-    <Folder Include="Exception\.svn\tmp\props\" />
-    <Folder Include="Exception\.svn\tmp\text-base\" />
-    <Folder Include="Feedforward\.svn\prop-base\" />
-    <Folder Include="Feedforward\.svn\props\" />
-    <Folder Include="Feedforward\.svn\tmp\prop-base\" />
-    <Folder Include="Feedforward\.svn\tmp\props\" />
-    <Folder Include="Feedforward\.svn\tmp\text-base\" />
-    <Folder Include="Feedforward\Train\.svn\prop-base\" />
-    <Folder Include="Feedforward\Train\.svn\props\" />
-    <Folder Include="Feedforward\Train\.svn\tmp\prop-base\" />
-    <Folder Include="Feedforward\Train\.svn\tmp\props\" />
-    <Folder Include="Feedforward\Train\.svn\tmp\text-base\" />
-    <Folder Include="Feedforward\Train\Backpropagation\.svn\prop-base\" />
-    <Folder Include="Feedforward\Train\Backpropagation\.svn\props\" />
-    <Folder Include="Feedforward\Train\Backpropagation\.svn\tmp\prop-base\" />
-    <Folder Include="Feedforward\Train\Backpropagation\.svn\tmp\props\" />
-    <Folder Include="Feedforward\Train\Backpropagation\.svn\tmp\text-base\" />
-    <Folder Include="Matrix\.svn\prop-base\" />
-    <Folder Include="Matrix\.svn\props\" />
-    <Folder Include="Matrix\.svn\tmp\prop-base\" />
-    <Folder Include="Matrix\.svn\tmp\props\" />
-    <Folder Include="Matrix\.svn\tmp\text-base\" />
-    <Folder Include="Util\.svn\prop-base\" />
-    <Folder Include="Util\.svn\props\" />
-    <Folder Include="Util\.svn\tmp\prop-base\" />
-    <Folder Include="Util\.svn\tmp\props\" />
-    <Folder Include="Util\.svn\tmp\text-base\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
